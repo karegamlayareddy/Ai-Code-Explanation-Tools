@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A beginner-friendly code explanation tool for common programming patterns.">
+  <title>CodeClarity — AI Code Explanation Tools</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CodeClarity home"><span class="brand-mark">C</span><span>Code<span class="brand-accent">Clarity</span></span></a>
+    <nav aria-label="Main navigation"><a href="#explainer">Explainer</a><a href="#history">History</a><a href="#how-it-works">How it works</a></nav>
+    <span class="status-pill"><span class="status-dot"></span> Learning mode</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR FRIENDLY CODE COMPANION</p>
+        <h1>Understand code.<br><span>One line at a time.</span></h1>
+        <p class="hero-description">Paste a code snippet, choose its language, and get a beginner-friendly breakdown of common programming statements.</p>
+        <a class="primary-link" href="#explainer">Explain my code <span aria-hidden="true">↓</span></a>
+        <p class="small-note">No AI API required · Your code is analyzed by built-in rules</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="floating-chip chip-one">&lt;/&gt; <span>code</span></div>
+        <div class="code-window">
+          <div class="window-bar"><i></i><i></i><i></i><span>hello_world.c</span></div>
+          <pre><span class="code-purple">int</span> main() {
+  <span class="code-purple">int</span> score = <span class="code-orange">95</span>;
+  <span class="code-blue">if</span> (score &gt;= <span class="code-orange">50</span>) {
+    printf(<span class="code-green">"You passed!"</span>);
+  }
+  <span class="code-blue">return</span> <span class="code-orange">0</span>;
+}</pre>
+          <div class="mini-result"><span>✦</span> <div><b>Code explained</b><small>6 lines analyzed</small></div><span class="check">✓</span></div>
+        </div>
+        <div class="floating-chip chip-two">✦ <span>Learn by doing</span></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Tool features">
+      <div><strong>5</strong><span>Languages</span></div><div><strong>Line-by-line</strong><span>Learning breakdown</span></div><div><strong>Saved</strong><span>Explanation history</span></div>
+    </section>
+
+    <section class="workspace section" id="explainer">
+      <div class="section-heading"><div><p class="eyebrow">THE CODE WORKSPACE</p><h2>Let's make sense of it.</h2></div><p>Start with a short example or paste your own code.</p></div>
+      <div class="workspace-grid">
+        <section class="panel editor-panel" aria-labelledby="editor-title">
+          <div class="panel-header"><div><span class="step-number">01</span><h3 id="editor-title">Your code</h3></div><button class="text-button" id="load-example" type="button">Load example ↗</button></div>
+          <label for="language">Programming language</label>
+          <select id="language">
+            <option value="c">C</option><option value="cpp">C++</option><option value="java">Java</option><option value="python">Python</option><option value="javascript">JavaScript</option>
+          </select>
+          <label for="code-input">Paste code here</label>
+          <textarea id="code-input" spellcheck="false" placeholder="Paste a short code snippet here..." maxlength="20000" aria-describedby="code-help"></textarea>
+          <div class="editor-footer"><span id="code-help">Maximum 20,000 characters</span><span id="line-count">0 lines</span></div>
+          <button class="primary-button" id="explain-button" type="button"><span>✦</span> Explain code <span aria-hidden="true">→</span></button>
+          <p class="privacy-note">Tip: don't paste passwords, API keys, or private code.</p>
+        </section>
+
+        <section class="panel output-panel" aria-labelledby="output-title">
+          <div class="panel-header"><div><span class="step-number">02</span><h3 id="output-title">Your explanation</h3></div><span class="output-badge" id="output-badge">Waiting for code</span></div>
+          <div id="output" class="output-content" aria-live="polite">
+            <div class="empty-state"><div class="empty-icon">✧</div><h4>Your explanation will appear here</h4><p>Submit a code snippet to see a summary, line-by-line notes, and learning tips.</p></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="history-section section" id="history">
+      <div class="section-heading"><div><p class="eyebrow">YOUR RECENT WORK</p><h2>Explanation history</h2></div><button id="refresh-history" class="secondary-button" type="button">↻ Refresh</button></div>
+      <p class="section-intro">Analyses saved from this browser appear here. This demo uses a browser-generated identifier, not a login account.</p>
+      <div id="history-list" class="history-list"><div class="history-empty">Your saved explanations will show up here after you analyze code.</div></div>
+    </section>
+
+    <section class="how-section section" id="how-it-works">
+      <p class="eyebrow">SIMPLE BY DESIGN</p><h2>Learn in three steps.</h2>
+      <div class="steps-grid">
+        <article><span>01</span><h3>Paste your code</h3><p>Choose C, C++, Java, Python, or JavaScript and enter a short snippet.</p></article>
+        <article><span>02</span><h3>Read the breakdown</h3><p>See a summary, notes for recognizable lines, and tips for further learning.</p></article>
+        <article><span>03</span><h3>Revisit your work</h3><p>Saved analyses can be reopened from your recent history on this browser.</p></article>
+      </div>
+      <div class="notice"><strong>Honest limitation:</strong> This project does not call a generative AI model. Its rule-based analyzer recognizes common syntax patterns and may not understand every program or prove that code is correct.</div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="/"><span class="brand-mark">C</span><span>Code<span class="brand-accent">Clarity</span></span></a><p>Built for curious learners. Keep experimenting. ✦</p><span>HTML · CSS · JavaScript · Express · Supabase</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
